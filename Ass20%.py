@@ -42,17 +42,16 @@ happy_pie
 
 #Defining function for line plot
 def happy_line_plots(country, happy_factors, title, my_label, my_color):
-    '''
     
+    '''
 
-    Parameters
-    ----------
-    country : The list of countries trimmed for the multiple line plot
-    happy_factors : The factors we are plotting against the countries
+    Here i defined the function for the line plot with the following parameters:
+    
+    country : The list of countries trimmed for the multiple line plot to be displayed on the x-axis
+    happy_factors : The factors we are plotting on the y-axis
     title : This is the title of the line plot
     my_label : These are the different labels
     my_color : Shows the different colour codes of the line plot
-
 
     '''
     # plotting the figure for line plot
@@ -70,20 +69,18 @@ def happy_line_plots(country, happy_factors, title, my_label, my_color):
 
 
 #Defining function for piechart
-def happy_piechart(pie_data, explode, label, title, color):
+def happy_piechart(pie_data, label, title, color):
+    
     '''
     
 
-    Parameters
+    Here i defined the function for the pie chart with the following parameters:
     ----------
-    pie_data : The data for the 
-    explode : T
+    pie_data : The data of the countries we are comparing
     label : These are the different labels
     title : This is the title of the Pie chart
     color : This will higlight the different shades of colour used in the pie chart
 
-    Returns
-    -------
     
 
     '''
@@ -92,7 +89,7 @@ def happy_piechart(pie_data, explode, label, title, color):
     # plotting the figure for piechart
     plt.figure(figsize=(10,8))
     plt.title(title, fontweight="bold")
-    plt.pie(pie_data, explode =explode, labels=label, colors=color)
+    plt.pie(pie_data, labels=label,)
     plt.show()
     
     return
@@ -126,12 +123,12 @@ plt.show()
 
 #Passing arrays into parameters for pie plot function
 pie_data =happy_pie['Perceptions of corruption']
-title = 'Perceptions of corruption in selected countries'
 label = happy_pie['Country or region']
+title = 'Perceptions of corruption in selected countries'
 color = [ 'green', 'yellow', 'orange', 'red', 'blue']
-explode = (0, 0, 0, 0, 0)
 
-#Passing the defined pie chart function for visualization
-happy_piechart(pie_data, explode, label, title, color)
+
+ #Passing the defined pie chart function for visualization
+happy_piechart(pie_data, label, title, color)
 
 
