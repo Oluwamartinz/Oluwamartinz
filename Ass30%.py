@@ -5,9 +5,11 @@ Created on Thu Mar 30 12:30:45 2023
 
 @author: macbookpro
 """
-
-import pandas as pd
+#importing dictionaries
 import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
 
 # Read the CSV file into a pandas DataFrame
 df = pd.read_excel(r'https://api.worldbank.org/v2/en/indicator/EG.ELC.ACCS.ZS?downloadformat=excel', sheet_name = 'Data')
@@ -60,3 +62,39 @@ x_label = "Years"
 y_label = "Access to electricity rate"
 
 plt_plot(x, y, label, color, x_label, y_label)
+
+def plt_bar(x, y, label, color, xaxes, yaxes):
+    
+    plt.figure(figsize=(10,6))
+    index = np.arange(len(x))
+    
+    
+    for i in range(len(y)):
+        plt.bar(x, y[i], label=label[i], color=color[i])
+    
+    plt.xlabel(xaxes)
+    plt.ylabel(yaxes)
+    plt.legend(loc='best')
+    plt.show()
+    
+    return
+    
+x = R["Year"]
+y = [R["Africa Western and Central"],R["Australia"],R["Brazil"],R["Canada"],R["Colombia"],R["Japan"],R["Mexico"],R["Paraguay"],R["Senegal"],R["South Africa"],R["Zimbabwe"]] 
+label = ["AFW", "AUS", "BRA", "CAN", "COL", "JPN", "MEX", "PRY", "SEN", "ZAF", "ZIM"]
+color = ['red','blue','green','yellow', 'black', 'purple', 'brown', 'pink', 'indigo', 'orange', 'violet']
+x_label = "Years"
+y_label = "Access to electricity rate"
+
+plt_bar(x, y, label, color, x_label, y_label)
+
+x = R["Year"]
+y = R["Africa Western and Central"] 
+x_label = "Years"
+y_label = "Access to electricity rate"
+plt.scatter(x,y)
+plt.xlabel('Years')
+plt.ylabel('Rate of access to Electricity')
+plt.title('Access to electricity rate in West Central Africa')
+plt.plot()
+plt.show()
