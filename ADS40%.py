@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from scipy.optimize import curve_fit
 from sklearn.metrics import silhouette_score
-import errors as err
+#import errors as err
 
 # the url to the dataset: https://api.worldbank.org/v2/en/indicator/SP.POP.TOTL?downloadformat=excel
 
