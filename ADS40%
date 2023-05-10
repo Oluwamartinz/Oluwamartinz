@@ -10,6 +10,8 @@ from scipy.optimize import curve_fit
 from sklearn.metrics import silhouette_score
 import errors as err
 
+# the url to the dataset: https://api.worldbank.org/v2/en/indicator/SP.POP.TOTL?downloadformat=excel
+
 # this function returns a dataframe and its transpose
 def readData(url, sheet_name, drop_cols):
     """
@@ -23,7 +25,7 @@ def readData(url, sheet_name, drop_cols):
     df.set_index('Country Name', inplace=True)
     return df, df.T
 
-# the attributes are passed into the functiomn
+# the attributes are passed into the function
 url = 'https://api.worldbank.org/v2/en/indicator/SP.POP.TOTL?downloadformat=excel'
 cols = ['Country Code', 'Indicator Name', 'Indicator Code']
 df_pop_year, df_pop_country = readData(url=url, sheet_name='Data', drop_cols=cols)
