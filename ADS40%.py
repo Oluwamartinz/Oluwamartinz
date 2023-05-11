@@ -25,7 +25,7 @@ def readData(url, sheet_name, drop_cols):
 
 # the attributes are passed into the function
 url = 'https://api.worldbank.org/v2/en/indicator/SP.POP.TOTL?downloadformat=excel'
-cols = ['Country Code', 'Indicator Name', 'Indicator Code']
+cols = ['Country Code', 'Indicator Name', 'Indicator Code', '2022']
 df_pop_year, df_pop_country = readData(url=url, sheet_name='Data', drop_cols=cols)
 
 
@@ -40,12 +40,12 @@ dataPopYear.isnull().sum()
 # drop null values
 dataPopYear = dataPopYear.dropna()
 
-# create a scatterplot that shows the distribution of data points between 1990 and 2019
+# create a scatterplot that shows the distribution of data points between 1990 and 2021
 plt.figure(figsize=(10,10))
 plt.scatter(dataPopYear['1960'], dataPopYear['2021'])
 plt.title('Scatterplot of World Population between 1960 and 2021', fontsize=15)
 plt.xlabel('Year 1990', fontsize=15)
-plt.ylabel('Year 2019', fontsize=15)
+plt.ylabel('Year 2021', fontsize=15)
 plt.show()
 
 
