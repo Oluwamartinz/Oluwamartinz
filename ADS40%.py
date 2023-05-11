@@ -8,9 +8,7 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from scipy.optimize import curve_fit
 from sklearn.metrics import silhouette_score
-#import errors as err
-
-# the url to the dataset: https://api.worldbank.org/v2/en/indicator/SP.POP.TOTL?downloadformat=excel
+import errors as err
 
 # this function returns a dataframe and its transpose
 def readData(url, sheet_name, drop_cols):
@@ -50,6 +48,7 @@ plt.xlabel('Year 1990', fontsize=15)
 plt.ylabel('Year 2019', fontsize=15)
 plt.show()
 
+
 # a function is created which uses min-max normalization
 def scaled_data(data_array):
     """"The function accepts the dataframe and it normalises the data and returns the points from 0 to 1  """
@@ -58,6 +57,7 @@ def scaled_data(data_array):
     scaled = (data_array-min_val) / (max_val-min_val)
     return scaled
 
+
 # a function is created which scales each column of the dataframe
 def norm_data(data):
     """"The function accepts the dataframe and it return the scaled inputs of each column"""
@@ -65,7 +65,8 @@ def norm_data(data):
         data[col] = scaled_data(data[col])
     return data
 
-# pass the copied data into the normalization function 
+
+# passing the copied data into the normalization function 
 copied_data = dataPopYear.copy()
 data_norm = norm_data(copied_data)
 data_norm
@@ -105,15 +106,10 @@ silhouette_score = silhouette_score(x_cluster, y_pred)
 print(silhouette_score)
 
 
-# In[16]:
-
-
 # the clusters are stored in a column called cluster
 dataPopYear['cluster'] = y_pred
 dataPopYear
 
-
-# In[17]:
 
 
 # a scatterplot is plot to visualize the clusters and the centroids
@@ -176,9 +172,6 @@ plt.legend()
 # third cluster dataframe
 cluster_three = dataPopYear[dataPopYear['cluster'] == 2]
 cluster_three
-
-
-# In[33]:
 
 
 # set the random seed 
